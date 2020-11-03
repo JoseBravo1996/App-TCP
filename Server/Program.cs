@@ -22,8 +22,9 @@ namespace Server
         private static void SetupServer()
         {
             Console.WriteLine("Configuracion del servidor...");
-            _serverSocket.Bind(new IPEndPoint(IPAddress.Any, 100));
-            _serverSocket.Listen(1);
+            IPAddress test1 = IPAddress.Parse("192.168.99.1");
+            _serverSocket.Bind(new IPEndPoint(test1, 100));
+            _serverSocket.Listen(5);
             _serverSocket.BeginAccept(new AsyncCallback(AcceptCallBack), null);
         }
 

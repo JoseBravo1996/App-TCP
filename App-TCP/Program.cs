@@ -2,7 +2,6 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading;
 
 namespace App_TCP
 {
@@ -22,7 +21,7 @@ namespace App_TCP
         {
             while (true)
             {
-                Console.WriteLine("Ingrese request");
+                Console.Write("Ingrese request: ");
                 string req = Console.ReadLine();
                 byte[] buffer = Encoding.ASCII.GetBytes(req);
 
@@ -47,7 +46,8 @@ namespace App_TCP
                 try
                 {
                     attemps++;
-                    _clientSocket.Connect(IPAddress.Loopback, 100);
+                    IPAddress test1 = IPAddress.Parse("192.168.99.1");
+                    _clientSocket.Connect(test1, 100);
                 }
                 catch (SocketException)
                 {
